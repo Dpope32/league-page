@@ -1,7 +1,7 @@
 /*   STEP 1   */
 export const leagueID = "1124833183762763776"; // your league ID
 export const dues = 50; 
-export const leagueName = "Dweb & the Boys Redraft";
+export const leagueName = "Dweb & the Boys";
 export const dynasty = false; // true for dynasty leagues, false for redraft and keeper
 export const enableBlog = false; // requires VITE_CONTENTFUL_ACCESS_TOKEN and VITE_CONTENTFUL_SPACE environment variables
 
