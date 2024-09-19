@@ -1,6 +1,5 @@
 /*   STEP 1   */
 export const leagueID = "1124833183762763776"; // your league ID
-export const leagueName = "Dweb and the boys"; 
 export const dues = 50; 
 export const dynasty = false; // true for dynasty leagues, false for redraft and keeper
 export const enableBlog = false; // requires VITE_CONTENTFUL_ACCESS_TOKEN and VITE_CONTENTFUL_SPACE environment variables
@@ -8,7 +7,7 @@ export const enableBlog = false; // requires VITE_CONTENTFUL_ACCESS_TOKEN and VI
 /*   STEP 2   */
 export const homepageText = `
   <div>
-    <h2>Dweb & the Boys Redraft Annual Fantasy Football League</h2>
+    <h2>Dweb & the Boys Redraft</h2>
     <p>Established: 2015</p>
     <h3>Recent Championships</h3>
     <ul>
