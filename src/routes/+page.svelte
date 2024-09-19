@@ -1,8 +1,8 @@
 <script>
-	import LinearProgress from '@smui/linear-progress';
-	import { getNflState, leagueName, getAwards, getLeagueTeamManagers, homepageText, managers, gotoManager, enableBlog, waitForAll } from '$lib/utils/helper';
-	import { Transactions, PowerRankings, HomePost} from '$lib/components';
-	import { getAvatarFromTeamManagers, getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
+    import LinearProgress from '@smui/linear-progress';
+    import { getNflState, leagueName, getAwards, getLeagueTeamManagers, homepageText, managers, gotoManager, enableBlog, waitForAll } from '$lib/utils/helper';
+    import { Transactions, PowerRankings, HomePost } from '$lib/components';
+    import { getAvatarFromTeamManagers, getTeamFromTeamManagers } from '$lib/utils/helperFunctions/universalFunctions';
 
     const nflState = getNflState();
     const podiumsData = getAwards();
@@ -12,7 +12,7 @@
 <style>
     #home {
         display: flex;
-        flex-wrap: nowrap;
+        flex-direction: column; /* Stack children vertically */
         position: relative;
         overflow-y: hidden;
         z-index: 1;
@@ -20,45 +20,30 @@
 
     #main {
         flex-grow: 1;
-        min-width: 320px;
+        width: 100%; /* Ensure full width */
         margin: 0 auto;
-        padding: 60px 0;
+        padding: 60px 20px; /* Adjust padding as needed */
     }
 
     .text {
-        padding: 0 30px;
-        max-width: 620px;
+        padding: 0 20px; /* Reduced padding for better mobile view */
+        max-width: 100%; /* Allow text to span full width */
         margin: 0 auto;
     }
 
     .leagueData {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        min-width: 470px;
-        max-width: 470px;
-        min-height: 100%;
-		background-color: var(--ebebeb);
-        border-left: var(--eee);
-		box-shadow: inset 8px 0px 6px -6px rgb(0 0 0 / 24%);
-    }
-
-    @media (max-width: 950px) {
-        .leagueData {
-            max-width: 100%;
-            min-width: 100%;
-            width: 100%;
-		    box-shadow: none;
-        }
-        #home {
-            flex-wrap: wrap;
-        }
+        width: 100%; /* Ensure full width */
+        min-width: auto; /* Remove fixed min-width */
+        max-width: 100%; /* Allow to span full width */
+        background-color: var(--ebebeb);
+        border-left: none; /* Remove left border for vertical layout */
+        box-shadow: none; /* Remove shadow for cleaner look */
+        padding: 20px; /* Add padding for spacing */
     }
 
     .transactions {
-        display: block;
-        width: 95%;
-        margin: 10px auto;
+        width: 100%; /* Full width for vertical layout */
+        margin: 10px 0; /* Vertical spacing */
     }
 
     .center {
@@ -80,9 +65,9 @@
     /* champ styling */
     #currentChamp {
         padding: 25px 0;
-		background-color: var(--f3f3f3);
-        box-shadow: 5px 0 8px var(--champShadow);
-        border-left: 1px solid var(--ddd);
+        background-color: var(--f3f3f3);
+        box-shadow: none; /* Remove shadow for vertical layout */
+        border-left: none; /* Remove border */
     }
 
     #champ {
@@ -128,19 +113,32 @@
         margin: 6px auto 10px;
         cursor: pointer;
     }
-    
-	:global(.curOwner) {
-		font-size: 0.75em;
-		color: #bbb;
-		font-style: italic;
-	}
+
+    :global(.curOwner) {
+        font-size: 0.75em;
+        color: #bbb;
+        font-style: italic;
+    }
+
+    @media (max-width: 950px) {
+        #home {
+            flex-direction: column; /* Keep vertical stack on smaller screens */
+        }
+
+        .leagueData {
+            max-width: 100%;
+            min-width: 100%;
+            width: 100%;
+            box-shadow: none; /* Remove box shadow for mobile view */
+        }
+    }
 </style>
 
 <div id="home">
     <div id="main">
         <div class="text">
             <!-- homepageText contains the intro text for your league, this gets edited in /src/lib/utils/leagueInfo.js -->
-            {@html homepageText }
+            {@html homepageText}
             <!-- Most recent Blog Post (if enabled) -->
             {#if enableBlog}
                 <HomePost />
@@ -148,7 +146,7 @@
         </div>
         <PowerRankings />
     </div>
-    
+
     <div class="leagueData">
         <div class="homeBanner">
             {#await nflState}
@@ -180,7 +178,9 @@
                         <img src="{getAvatarFromTeamManagers(leagueTeamManagers, podiums[0].champion, podiums[0].year)}" class="first" alt="champion" />
                         <img src="/laurel.png" class="laurel" alt="laurel" />
                     </div>
-                    <span class="label" on:click={() => gotoManager({year: podiums[0].year, leagueTeamManagers, rosterID: parseInt(podiums[0].champion)})} >{getTeamFromTeamManagers(leagueTeamManagers, podiums[0].champion, podiums[0].year).name}</span>
+                    <span class="label" on:click={() => gotoManager({year: podiums[0].year, leagueTeamManagers, rosterID: parseInt(podiums[0].champion)})} >
+                        {getTeamFromTeamManagers(leagueTeamManagers, podiums[0].champion, podiums[0].year).name}
+                    </span>
                 {:else}
                     <p class="center">No former champs.</p>
                 {/if}
@@ -189,7 +189,7 @@
             {/await}
         </div>
 
-        <div class="transactions" >
+        <div class="transactions">
             <Transactions />
         </div>
     </div>
