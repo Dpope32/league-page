@@ -120,76 +120,64 @@ html,
 body {
   position: relative;
   margin: 0;
-  background-color: theme.$surface;
-  color: theme.$on-surface;
+  background-color: var(--surface);
+  color: var(--g111);
   min-height: 100vh;
-  background: #222;
-  background: linear-gradient(to bottom right, #111,#222 );
-  background: -webkit-linear-gradient(to bottom right, #111,#222 );
-}
- 
-//
-// Some defaults that may be helpful to you.
-// If you just want to use these, and not the classes, you can instead just
-// @use '@material/typography/index' as typography, and your CSS file will be smaller.
-//
-html {
-  @include typography.typography('body1');
-}
- 
-h1 {
-  @include typography.typography('headline1');
-}
- 
-h2 {
-  @include typography.typography('headline2');
-}
- 
-h3 {
-  @include typography.typography('headline3');
-}
- 
-h4 {
-  @include typography.typography('headline4');
-}
- 
-h5 {
-  @include typography.typography('headline5');
-}
- 
-h6 {
-  @include typography.typography('headline6');
-}
- 
-caption {
-  @include typography.typography('caption');
-}
- 
-code,
-pre {
-  font-family: 'Roboto Mono', monospace;
-}
- 
-small {
-  font-size: 0.9em;
-}
- 
-big {
-  font-size: 1.1em;
-}
- 
-b,
-strong {
-  font-weight: bold;
+  background: linear-gradient(to bottom right, var(--r1), var(--r2));
 }
 
-a {
-  color: #40b3ff;
+// Typography
+h1 {
+  @include typography.typography('headline1');
+  color: var(--blueOne);
 }
-a:visited {
-  color: color.scale(#40b3ff, $lightness: -35%);
+
+h2 {
+  @include typography.typography('headline2');
+  color: var(--g000);
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  @include typography.typography('headline3');
+  color: var(--g333);
+}
+
+h4 {
+  @include typography.typography('headline4');
+  color: var(--blueTwo);
+}
+
+// List Styling for the Championships
+ul {
+  padding-left: 1.5rem;
+}
+
+li {
+  list-style-type: disc;
+  font-size: 1.1em;
+  margin-bottom: 0.5rem;
+}
+
+// Specific Styling for Milestones
+li em {
+  font-style: italic;
+  color: var(--g999);  // Differentiating milestones with a lighter shade
+}
+
+// Buttons and Links
+a {
+  color: var(--blueOne);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--blueTwo);
+  text-decoration: underline;
 }
 
 .mdc-button--outlined:not(:disabled) {
-  background-color: #070707 !important;
+  background-color: var(--boxShadowOne) !important;
+  border: 1px solid var(--blueTwo);
+  color: var(--g000);
 }
