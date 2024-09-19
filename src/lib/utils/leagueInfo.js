@@ -8,7 +8,7 @@ export const enableBlog = false; // requires VITE_CONTENTFUL_ACCESS_TOKEN and VI
 /*   STEP 2   */
 export const homepageText = `
   <div>
-    <h2>Dweb & the Boys Redraft</h2>
+    <h2>Dweb & the Boys</h2>
     <p>Established: 2015</p>
     <h3>Recent Championships</h3>
     <ul>
