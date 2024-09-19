@@ -7,20 +7,25 @@ export const enableBlog = false; // requires VITE_CONTENTFUL_ACCESS_TOKEN and VI
 
 /*   STEP 2   */
 export const homepageText = `
-  <p>Dweb & the boys Redraft Annual Fantasy Football League</p>
-    <p>Est. 2015</p>
-    <p>Recent Championships </p>
-    <p>2023: VivaLasVegas (Lance) </p>
-    <p>2022: VivaLasVegas (Lance)</p>
-    <p>2021: Tampa Cuckaneers (Billy) </p>
-    <p>2020: VivaLasVegas (Lance) </p>
-    <p> LEAGUE TRANSITIONS TO SLEEPER </p>
-    <p>2019: Dweb18 (Devin) </p>
-    <p>2017: VivaLasVegas (Lance) </p>
-    <p> LANCE JOINS </p>
-    <p>2016: Dweb18 (Dweb18) </p>
-    <p>2015: Twat Waffles (Dawson) <p>
+  <div>
+    <h2>Dweb & the Boys Redraft Annual Fantasy Football League</h2>
+    <p>Established: 2015</p>
+    <h3>Recent Championships</h3>
+    <ul>
+      <li><strong>2023:</strong> VivaLasVegas (Lance)</li>
+      <li><strong>2022:</strong> VivaLasVegas (Lance)</li>
+      <li><strong>2021:</strong> Tampa Cuckaneers (Billy)</li>
+      <li><strong>2020:</strong> VivaLasVegas (Lance)</li>
+      <li><em>2020: League transitions to Sleeper</em></li>
+      <li><strong>2019:</strong> Dweb18 (Devin)</li>
+      <li><strong>2017:</strong> VivaLasVegas (Lance)</li>
+      <li><em>2017: Lance joins the league</em></li>
+      <li><strong>2016:</strong> Dweb18 (Dweb18)</li>
+      <li><strong>2015:</strong> Twat Waffles (Dawson)</li>
+    </ul>
+  </div>
 `;
+
 
 /*   STEP 3   */
 /*
